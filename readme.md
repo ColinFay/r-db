@@ -18,25 +18,6 @@ Launch rstudio instance:
 docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6.0 && sleep 2 && open http://localhost:8787/
 ```
 
-
-# TODO ----
-
-
-## impala & {implyr}
-
-```
-docker pull cloudera/impala-dev:minimal
-docker run -p 21050:21050 -d --name impala --net rdb cloudera/impala-dev:minimal
-```
-
-## Mariadb 
-
-```
-docker pull mariadb:10.4.5-bionic
-docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4.5-bionic
-```
-
-
 + {bigrquery}
 + {dbfaker}
 + {DBI}
@@ -67,6 +48,15 @@ Search(x, index = "plos", size = 1)$hits$hits
 
 + {filehashSQLite}
 + {implyr}
+
+## impala & {implyr}
+
+```
+docker pull cloudera/impala-dev:minimal
+docker run -p 21050:21050 -d --name impala --net rdb cloudera/impala-dev:minimal
+```
+
+
 + {influxdbr}
 
 ## InfluxDB and {influxdbr}
@@ -182,6 +172,14 @@ docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel
 + {RH2}
 + {RJDBC}
 + {RMariaDB}
+
+## Mariadb 
+
+```
+docker pull mariadb:10.4.5-bionic
+docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4.5-bionic
+```
+
 + {RMySQL}
 + {ROracle}
 + {rpostgis}
