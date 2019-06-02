@@ -1,20 +1,29 @@
 # r-db
 
-A Dockerfile that can install the whole stack of packages from the CRAN task view "Databases".
+A Dockerfile that can install the whole stack of packages from the CRAN task view "Databases". Probably for teaching purpose.
 
-Each db has an example code you can run. Mostly taken from these packages README / docs.
+Once launched, this Docker image has everything needed to connect and interact with the databases listed in the [Databases CRAN View](https://cran.r-project.org/web/views/Databases.html), well at least with the one that can be installed with the `{ctv}` package. 
+
+On this README, you'll also find how to install and interact with these DBMS with other containers.
+
+Note that the Task View will be installed with the status it had on the date of the Docker container. 
+
+Each DB has an example code you can run. Most arer taken from these packages README / docs. Not all are filled and any help testing / writting example code will be welcome.
+
 
 ## Creating Docker network
 
 Let's get all these folks wired
 
 ```
-docker network create -d bridge --subnet 192.168.0.0/24 rdb
+docker network create r-db
 ```
 
 Launch rstudio instance: 
 
 ```
+docker pull colinfay/r-db:3.6.0
+
 docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6.0 && sleep 2 && open http://localhost:8787/
 ```
 
