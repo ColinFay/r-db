@@ -352,7 +352,7 @@ dbListTables(con)
 dbReadTable(con, "mtcars")
 ```
 
-## #`{sqldf}`
+### `{sqldf}`
 
 Core package, cross-database.
 
