@@ -50,7 +50,7 @@ docker run -d --name elasticsearch --net r-db -p 9200:9200 -p 9300:9300 -e "disc
 
 In RStudio 
 
-``` r 
+``` r
 library(elastic)
 x <- connect(port = 9200, host = "elasticsearch")
 
@@ -228,7 +228,7 @@ con$queryParam <- "count=10"
 cdbGetUuidS(con)
 ```
 
-+ Cassandra & `{RCassandra}`
+### Cassandra & `{RCassandra}`
 
 ```
 docker pull cassandra:2.1
@@ -272,11 +272,11 @@ docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel
 ```
 > Tests needed
 
-+ H2 & `{RH2}`
+### H2 & `{RH2}`
 
 > Tests needed
 
-+ `{RJDBC}`
+### `{RJDBC}`
 
 > Tests needed
 
@@ -289,7 +289,7 @@ docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4
 
 > Tests needed
 
-+ MySQL & `{RMySQL}`
+### MySQL & `{RMySQL}`
 
 ```
 docker pull mysql:8.0.16
@@ -298,11 +298,11 @@ docker run --net r-db --name mysql -d mysql:8.0.16
 
 > Tests needed
 
-+ Oracle & `{ROracle}` 
+### Oracle & `{ROracle}` 
 
 > Tests needed
 
-+ `{rpostgis}`
+### `{rpostgis}`
 
 > Tests needed
 
