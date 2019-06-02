@@ -1,4 +1,6 @@
 FROM rocker/tidyverse:3.6.0
+
+LABEL maintainer="Colin Fay <contact@colinfay.me>"
     
 # R Task View
 
