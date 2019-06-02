@@ -295,13 +295,14 @@ docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4
 docker pull mysql:8.0.16
 docker run --net r-db --name mysql -d mysql:8.0.16
 ```
+
 > Tests needed
 
 + Oracle & `{ROracle}` 
 
 > Tests needed
 
-+ {rpostgis}
++ `{rpostgis}`
 
 > Tests needed
 
@@ -338,6 +339,7 @@ dbClearResult(res)
 ```
 docker pull prestashop/prestashop:1.7
 ```
+> Tests needed
 
 ### `{RSQLite}`
 
