@@ -6,7 +6,7 @@ Once launched, this Docker image has everything needed to connect and interact w
 
 On this README, you'll also find how to install and interact with these DBMS with other containers.
 
-Note that the Task View will be installed with the status it had on the date of the Docker container. 
+Note that the Task View will be installed with the status it had on the date of the Docker container, which is defined by the version of R used.
 
 Each DB has an example code you can run. Most arer taken from these packages README / docs. Not all are filled and any help testing / writting example code will be welcome.
 
