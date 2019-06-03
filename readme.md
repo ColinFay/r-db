@@ -10,6 +10,9 @@ Note that the Task View will be installed with the status it had on the date of 
 
 Each DB has an example code you can run. Most arer taken from these packages README / docs. Not all are filled and any help testing / writting example code will be welcome.
 
+## Licence note on Oracle
+
+This Dockerfile uses the Oracle Instant Client driver, and by using this image you agree to Oracle Technology Network License Agreement, available at <https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html> for the Oracle elements.
 
 ## Creating Docker network
 
