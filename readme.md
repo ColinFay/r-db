@@ -296,10 +296,28 @@ docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4
 
 ```
 docker pull mysql:8.0.16
-docker run --net r-db --name mysql -d mysql:8.0.16
+docker run --net r-db --name mysql -e MYSQL_ROOT_PASSWORD=coucou -d mysql:8.0.16 --default-authentication-plugin=mysql_native_password && sleep 30 && docker exec -it mysql mysql -uroot -pcoucou -e "create database mydb"
 ```
 
-> Tests needed
+In RStudio 
+
+``` r 
+library(DBI)
+con <- DBI::dbConnect(
+  RMariaDB::MariaDB(), 
+  user = "root",
+  password = "coucou",
+  host = "mysql",
+  db = "mydb"
+)
+
+dbListTables(con)
+dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
+
+res <- dbSendQuery(con, "SELECT * FROM mtcars WHERE cyl = 4")
+dbFetch(res)
+```
 
 ### Oracle & `{ROracle}` 
 
