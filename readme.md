@@ -325,7 +325,38 @@ dbFetch(res)
 
 ### `{rpostgis}`
 
-> Tests needed
+```
+docker pull mdillon/postgis:9.5-alpine
+docker run --name some-postgis -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d --net r-db mdillon/postgis:9.5-alpine
+```
+
+In RStudio:
+
+``` r 
+con <- RPostgreSQL::dbConnect(
+  "PostgreSQL", 
+  host = "some-postgis", 
+  dbname = "postgres", 
+  port = 5432,
+  user = "postgres", 
+  password = "mysecretpassword"
+)
+
+install.packages("rnaturalearth")
+
+ne_world <- rnaturalearth::ne_countries(scale = 50, returnclass = "sf")
+library(sf)
+st_write(ne_world, dsn = con, layer = "ne_world",
+         overwrite = FALSE, append = FALSE)
+world_sf <- st_read(con, layer = "ne_world")
+
+query <- paste(
+  'SELECT "name", "name_long", "geometry"',
+  'FROM "ne_world"',
+  'WHERE ("continent" = \'Africa\');'
+)
+africa_sf <- st_read(con, query = query)
+```
 
 ## PostGreSQL and `{RPostgres}` / `{RPostgreSQL}`
 
