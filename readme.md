@@ -90,7 +90,7 @@ with(db, mean(a))
 cat(db$b, "\n")
 ```
 
-#### impala & {implyr}
+#### impala & `{implyr}`
 
 ```
 docker pull cloudera/impala-dev:minimal
