@@ -30,21 +30,31 @@ docker pull colinfay/r-db:3.6.0
 docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6.0 && sleep 2 && open http://localhost:8787/
 ```
 
-## Task View Package
+## Task View Packages
 
-### Google Big Query & `{bigrquery}`
+### Cross database packages
+
++ `{DBI}` 
++ `{DBItest}` 
++`{dbplyr}` 
++`{dplyr}`
++ `{odbc}`
++ `{pointblank}`
++`{sqldf}`
++ `{tidyr}`
++ `{TScompare}`
+
+### Database specific packages
+
+#### Google Big Query & `{bigrquery}`
 
 > Not open source, and no account. Tests & Feedback welcome
 
-### `{dbfaker}`
+#### `{dbfaker}`
 
 > Tests needed
 
-### `{DBI}` & `{DBItest}` / `{dbplyr}` & `{dplyr}`
-
-Core package, cross-database.
- 
-## elasticsearch & `{elastic}` / `{uptasticsearch}`
+#### elasticsearch & `{elastic}` / `{uptasticsearch}`
 
 ```
 docker pull elasticsearch:7.1.0
@@ -65,7 +75,7 @@ Search(x, index = "plos", size = 1)$hits$hits
 
 > Tests needed fo {uptasticsearch}
 
-### `{filehashSQLite}`
+#### `{filehashSQLite}`
 
 In RStudio:
 
@@ -80,7 +90,7 @@ with(db, mean(a))
 cat(db$b, "\n")
 ```
 
-## impala & {implyr}
+#### impala & {implyr}
 
 ```
 docker pull cloudera/impala-dev:minimal
@@ -89,7 +99,7 @@ docker run -p 21050:21050 -d --name impala --net r-db cloudera/impala-dev:minima
 
 > Not tested yet
 
-## InfluxDB and `{influxdbr}`
+#### InfluxDB and `{influxdbr}`
 
 ```
 docker pull influxdb:1.5
@@ -132,7 +142,7 @@ influx_write(con = con,
 
 ```
 
-### `{liteq}`
+#### `{liteq}`
 
 ``` r
 library(liteq)
@@ -147,7 +157,7 @@ msg <- try_consume(q)
 msg
 ```
 
-## mongodb & `{mongolite}`
+#### mongodb & `{mongolite}`
 
 ```
 docker pull mongo:3.4
@@ -165,15 +175,7 @@ a$count()
 a$find('{"cut" : "Premium", "price" : { "$lt" : 1000 } }')
 ```
 
-### `{odbc}`
-
-Core package, cross-database.
-
-### `{pointblank}`
-
-Core package, cross-database.
-
-### `{pool}`
+#### `{pool}`
 
 In RStudio:
 
@@ -215,7 +217,7 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
-## couchdb and `{R4CouchDB}`
+#### couchdb and `{R4CouchDB}`
 
 ```
 docker pull couchdb:2.3.1
@@ -231,7 +233,7 @@ con$queryParam <- "count=10"
 cdbGetUuidS(con)
 ```
 
-### Cassandra & `{RCassandra}`
+#### Cassandra & `{RCassandra}`
 
 ```
 docker pull cassandra:2.1
@@ -248,7 +250,7 @@ log <- RC.login(con, "cassandra", "cassandra")
 
 > Tests needed
 
-### redis & `{RcppRedis}` / `{redux}`
+#### redis & `{RcppRedis}` / `{redux}`
 
 ```
 docker pull redis:5.0.5
@@ -267,7 +269,7 @@ r$GET("foo")
 
 > Tests needed for {RcppRedis}
 
-### {RGreenplum}
+#### {RGreenplum}
 
 ``` 
 docker pull pivotaldata/gpdb-devel
@@ -275,15 +277,15 @@ docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel
 ```
 > Tests needed
 
-### H2 & `{RH2}`
+#### H2 & `{RH2}`
 
 > Tests needed
 
-### `{RJDBC}`
+#### `{RJDBC}`
 
 > Tests needed
 
-## Mariadb & `{RMariaDB}`
+#### Mariadb & `{RMariaDB}`
 
 ```
 docker pull mariadb:10.4.5-bionic
@@ -292,7 +294,7 @@ docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4
 
 > Tests needed
 
-### MySQL & `{RMySQL}`
+#### MySQL & `{RMySQL}`
 
 ```
 docker pull mysql:8.0.16
@@ -319,11 +321,11 @@ res <- dbSendQuery(con, "SELECT * FROM mtcars WHERE cyl = 4")
 dbFetch(res)
 ```
 
-### Oracle & `{ROracle}` 
+#### Oracle & `{ROracle}` 
 
 > Tests needed
 
-### `{rpostgis}`
+#### `{rpostgis}`
 
 ```
 docker pull mdillon/postgis:9.5-alpine
@@ -358,7 +360,7 @@ query <- paste(
 africa_sf <- st_read(con, query = query)
 ```
 
-## PostGreSQL and `{RPostgres}` / `{RPostgreSQL}`
+#### PostGreSQL and `{RPostgres}` / `{RPostgreSQL}`
 
 ```
 docker pull postgres:11.3
@@ -386,14 +388,14 @@ dbFetch(res)
 dbClearResult(res)
 ```
 
-### `{RPresto}`
+#### `{RPresto}`
 
 ```
 docker pull prestashop/prestashop:1.7
 ```
 > Tests needed
 
-### `{RSQLite}`
+#### `{RSQLite}`
 
 In RStudio
 
@@ -405,15 +407,3 @@ dbWriteTable(con, "mtcars", mtcars)
 dbListTables(con)
 dbReadTable(con, "mtcars")
 ```
-
-### `{sqldf}`
-
-Core package, cross-database.
-
-### `{tidyr}`
-
-Core package, cross-database.
- 
-### `{TScompare}`
-
-Core package, cross-database.
