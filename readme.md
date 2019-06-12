@@ -289,7 +289,7 @@ docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel
 
 ```
 docker pull mariadb:10.4.5-bionic
-docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=root -d mariadb:10.4.5-bionic
+docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=coucou -d mariadb:10.4.5-bionic && sleep 30 && docker exec -it mariadb mysql -uroot -pcoucou -e "create database mydb"
 ```
 
 > Tests needed
