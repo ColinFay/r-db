@@ -292,7 +292,26 @@ docker pull mariadb:10.4.5-bionic
 docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=coucou -d mariadb:10.4.5-bionic && sleep 30 && docker exec -it mariadb mysql -uroot -pcoucou -e "create database mydb"
 ```
 
-> Tests needed
+In RStudio: 
+
+``` r
+library(DBI)
+con <- DBI::dbConnect(
+  RMariaDB::MariaDB(), 
+  user = "root",
+  password = "coucou",
+  host = "mariadb",
+  db = "mydb"
+)
+
+dbListTables(con)
+dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
+
+res <- dbSendQuery(con, "SELECT * FROM mtcars WHERE cyl = 4")
+dbFetch(res)
+
+```
 
 #### MySQL & `{RMySQL}`
 
