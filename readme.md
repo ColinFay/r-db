@@ -27,7 +27,8 @@ Launch rstudio instance:
 ```
 docker pull colinfay/r-db:3.6.0
 
-docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6.0 && sleep 2 && open http://localhost:8787/
+docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6.0 \ 
+  && sleep 2 && open http://localhost:8787/
 ```
 
 ## Task View Packages
@@ -58,7 +59,8 @@ docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6
 
 ```
 docker pull elasticsearch:7.1.0
-docker run -d --name elasticsearch --net r-db -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.1.0
+docker run -d --name elasticsearch --net r-db -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" elasticsearch:7.1.0
 ```
 
 In RStudio 
@@ -289,7 +291,9 @@ docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel
 
 ```
 docker pull mariadb:10.4.5-bionic
-docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=coucou -d mariadb:10.4.5-bionic && sleep 30 && docker exec -it mariadb mysql -uroot -pcoucou -e "create database mydb"
+docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=coucou \
+  -d mariadb:10.4.5-bionic && sleep 30 && \
+  docker exec -it mariadb mysql -uroot -pcoucou -e "create database mydb"
 ```
 
 In RStudio: 
@@ -317,7 +321,9 @@ dbFetch(res)
 
 ```
 docker pull mysql:8.0.16
-docker run --net r-db --name mysql -e MYSQL_ROOT_PASSWORD=coucou -d mysql:8.0.16 --default-authentication-plugin=mysql_native_password && sleep 30 && docker exec -it mysql mysql -uroot -pcoucou -e "create database mydb"
+docker run --net r-db --name mysql -e MYSQL_ROOT_PASSWORD=coucou -d mysql:8.0.16 \
+  --default-authentication-plugin=mysql_native_password \
+  && sleep 30 && docker exec -it mysql mysql -uroot -pcoucou -e "create database mydb"
 ```
 
 In RStudio 
@@ -348,7 +354,8 @@ dbFetch(res)
 
 ```
 docker pull mdillon/postgis:9.5-alpine
-docker run --name some-postgis -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d --net r-db mdillon/postgis:9.5-alpine
+docker run --name some-postgis -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword \
+  -d --net r-db mdillon/postgis:9.5-alpine
 ```
 
 In RStudio:
