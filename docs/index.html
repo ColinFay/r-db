@@ -126,11 +126,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">r-db</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>r-db</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licence-note-on-oracle"><i class="fa fa-check"></i>Licence note on Oracle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-read"><i class="fa fa-check"></i>How to read</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#special-thanks"><i class="fa fa-check"></i>Special thanks</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#creating-docker-network"><i class="fa fa-check"></i><b>1.1</b> Creating Docker network</a></li>
@@ -188,16 +190,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="r-db" class="section level1 unnumbered">
 <h1>r-db</h1>
-<p>A Dockerfile that can install the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose.</p>
+<p><code>r-db</code> is a Dockerfile that can install the whole stack of packages from the CRAN task view “Databases”, plus some others. You can use it for teaching/learning to use these db. Probably for production, but I don’t warrant anything with this, so you should definitely audit the Dockerfile before using it.</p>
+<p>Please also check the <a href="https://github.com/ColinFay/r-db/blob/master/LICENSE">License file</a> before using.</p>
 <p>Get it with:</p>
 <pre><code>docker pull colinfay/r-db</code></pre>
-<p>Once launched, this Docker image has everything needed to connect and interact with the databases listed in the <a href="https://cran.r-project.org/web/views/Databases.html">Databases CRAN View</a>, well at least with the one that can be installed with the <code>{ctv}</code> package, plus some others you’ll find listed below.</p>
+<p>Once launched, this Docker image has everything needed to connect and interact with the databases listed in the <a href="https://cran.r-project.org/web/views/Databases.html">Databases CRAN View</a>, well at least with the one that can be installed with the <code>{ctv}</code> package, plus some others that might come in the future.</p>
+<div id="about" class="section level2 unnumbered">
+<h2>About</h2>
 <p>In this book, you’ll also find how to install and interact with these DBMS with other containers.</p>
 <p>Note that the Task View will be installed with the status it had on the date of the Docker container, which is defined by the version of R used.</p>
 <p>Each DB has an example code you can run. Most are taken from these packages README / docs. Not all are filled and any help testing / writting example code will be welcome.</p>
-<div id="licence-note-on-oracle" class="section level2 unnumbered">
-<h2>Licence note on Oracle</h2>
-<p>This Dockerfile uses the Oracle Instant Client driver, and by using this image you agree to Oracle Technology Network License Agreement, available at <a href="https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html" class="uri">https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html</a> for the Oracle elements.</p>
+</div>
+<div id="how-to-read" class="section level2 unnumbered">
+<h2>How to read</h2>
+<p>The <a href="intro.html#intro">Introduction</a> section describes you how to build a docker network to connect the <code>r-db</code> image with other Docker images so that you’re able to test the packages to connect to databases.</p>
+</div>
+<div id="special-thanks" class="section level2 unnumbered">
+<h2>Special thanks</h2>
+<ul>
+<li><p>This work has been made possible by the massive work undertaken by <a href="http://dirk.eddelbuettel.com/">Dirk Eddelbuettel</a> and <a href="https://www.carlboettiger.info/">Carl Boettiger</a> with the <a href="https://www.rocker-project.org/">rocker project</a>.</p></li>
+<li><p><a href="https://terrytangyuan.github.io/">Yuan Tang</a> for maintaining the <a href="https://cran.r-project.org/web/views/Databases.html">database task view</a>.</p></li>
+</ul>
 
 </div>
 </div>

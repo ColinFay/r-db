@@ -12,7 +12,9 @@ description: "Install and use the whole stack of packages from the CRAN task vie
 
 # r-db {-}
 
-A Dockerfile that can install the whole stack of packages from the CRAN task view "Databases", plus some others. Probably for teaching purpose.
+`r-db` is a Dockerfile that can install the whole stack of packages from the CRAN task view "Databases", plus some others. You can use it for teaching/learning to use these db. Probably for production, but I don't warrant anything with this, so you should definitely audit the Dockerfile before using it. 
+
+Please also check the [License file](https://github.com/ColinFay/r-db/blob/master/LICENSE) before using.
 
 Get it with:
 
@@ -20,7 +22,9 @@ Get it with:
 docker pull colinfay/r-db
 ```
 
-Once launched, this Docker image has everything needed to connect and interact with the databases listed in the [Databases CRAN View](https://cran.r-project.org/web/views/Databases.html), well at least with the one that can be installed with the `{ctv}` package, plus some others you'll find listed below.
+Once launched, this Docker image has everything needed to connect and interact with the databases listed in the [Databases CRAN View](https://cran.r-project.org/web/views/Databases.html), well at least with the one that can be installed with the `{ctv}` package, plus some others that might come in the future.
+
+## About {-}
 
 In this book, you'll also find how to install and interact with these DBMS with other containers.
 
@@ -28,10 +32,15 @@ Note that the Task View will be installed with the status it had on the date of 
 
 Each DB has an example code you can run. Most are taken from these packages README / docs. Not all are filled and any help testing / writting example code will be welcome.
 
-## Licence note on Oracle {-}
+## How to read {-}
 
-This Dockerfile uses the Oracle Instant Client driver, and by using this image you agree to Oracle Technology Network License Agreement, available at <https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html> for the Oracle elements.
+The [Introduction](#intro) section describes you how to build a docker network to connect the `r-db` image with other Docker images so that you're able to test the packages to connect to databases. 
 
+## Special thanks {-}
+
++ This work has been made possible by the massive work undertaken by [Dirk Eddelbuettel](http://dirk.eddelbuettel.com/) and [Carl Boettiger](https://www.carlboettiger.info/) with the [rocker project](https://www.rocker-project.org/).
+
++ [Yuan Tang](https://terrytangyuan.github.io/) for maintaining the [database task view](https://cran.r-project.org/web/views/Databases.html).
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
