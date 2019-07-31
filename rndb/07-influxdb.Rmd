@@ -1,0 +1,42 @@
+# InfluxDB and `{influxdbr}`
+
+```
+docker pull influxdb:1.5
+docker run -d --name influxdb --net r-db influxdb:1.5
+```
+
+In RStudio 
+
+``` r 
+library(influxdbr)
+library(xts)
+data("sample_matrix")
+xts_data <- xts::as.xts(x = sample_matrix)
+xts::xtsAttributes(xts_data) <- list(info = "SampleDataMatrix",
+                                     UnitTesting = TRUE, 
+                                     n = 180,
+                                     source = "xts")
+
+con <- influx_connection(host = "influxdb", port = 8086)
+create_database(con = con, db = "mydb")
+show_databases(con = con)
+influx_write(con = con, 
+             db = "mydb",
+             x = xts_data, 
+             measurement = "sampledata")
+show_databases(con = con)
+
+df_data <- dplyr::bind_cols(time = zoo::index(xts_data), # timestamp
+                            data.frame(xts_data)) %>% # coredata
+  dplyr::mutate(info = "SampleDataMatrix", # add tag 'info'
+                UnitTesting = TRUE, # add tag 'UnitTesting'
+                n = row_number(), # add tag 'n'
+                source = "df")
+
+influx_write(con = con, 
+             db = "mydb",
+             x = df_data,
+             time_col = "time", tag_cols = c("info", "UnitTesting", "n", "source"),
+             measurement = "sampledata")
+
+```

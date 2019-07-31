@@ -1,0 +1,14 @@
+# `{filehashSQLite}`
+
+In RStudio:
+
+``` r 
+library(filehashSQLite)
+dbCreate("myTestDB", type = "SQLite")
+db <- dbInit("myTestDB", type = "SQLite")
+set.seed(100)
+db$a <- rnorm(100)
+db$b <- "a character element"
+with(db, mean(a))
+cat(db$b, "\n")
+```

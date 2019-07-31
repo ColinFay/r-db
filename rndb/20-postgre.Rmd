@@ -1,0 +1,27 @@
+# PostGreSQL and `{RPostgres}` / `{RPostgreSQL}`
+
+```
+docker pull postgres:11.3
+docker run --rm -e POSTGRES_PASSWORD=docker --name postgre --net r-db postgres:11.3
+```
+
+In RStudio 
+
+``` r 
+library(DBI)
+# Connect to a specific postgres database i.e. Heroku
+con <- dbConnect(RPostgres::Postgres(),
+                 dbname = 'postgres', 
+                 host = 'postgre',
+                 port = 5432, 
+                 user = 'postgres',
+                 password = 'docker')
+
+dbListTables(con)
+dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
+
+res <- dbSendQuery(con, "SELECT * FROM mtcars WHERE cyl = 4")
+dbFetch(res)
+dbClearResult(res)
+```

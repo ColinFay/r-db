@@ -1,0 +1,7 @@
+# redis & `{RcppRedis}` / `{redux}`
+
+``` 
+docker pull pivotaldata/gpdb-devel
+docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel
+```
+> Tests needed

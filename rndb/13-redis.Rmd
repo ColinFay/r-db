@@ -1,0 +1,18 @@
+# redis & `{RcppRedis}` / `{redux}`
+
+```
+docker pull redis:5.0.5
+docker run --rm --name redis --net r-db -d redis:5.0.5
+```
+
+``` r
+r <- redux::hiredis(
+  url = "redis"
+)
+r$PING()
+r$SET("foo", "bar")
+r$GET("foo")
+
+```
+
+> Tests needed for {RcppRedis}

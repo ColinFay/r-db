@@ -1,0 +1,17 @@
+# mongodb & `{mongolite}`
+
+```
+docker pull mongo:3.4
+docker run -p 27017:27017 -d --name mongo --net r-db mongo:3.4
+```
+
+Try in RStudio:
+
+``` r
+library(mongolite)
+a <- mongo(collection = "collection", db = "db", url = "mongodb://mongo:27017")
+a$insert(iris)
+a$insert(ggplot2::diamonds)
+a$count()
+a$find('{"cut" : "Premium", "price" : { "$lt" : 1000 } }')
+```

@@ -1,0 +1,30 @@
+# Introduction {#intro}
+
+## Creating Docker network
+
+Let's get all these folks wired
+
+```
+docker network create r-db
+```
+
+Launch rstudio instance: 
+
+```
+docker run -it -d -e DISABLE_AUTH=true -p 8787:8787 --net r-db colinfay/r-db:3.6.0 \ 
+  && sleep 2 && open http://localhost:8787/
+```
+
+## Task View Packages
+
+### Cross database packages
+
++ `{DBI}` 
++ `{DBItest}` 
++`{dbplyr}` 
++`{dplyr}`
++ `{odbc}`
++ `{pointblank}`
++`{sqldf}`
++ `{tidyr}`
++ `{TScompare}`

@@ -1,0 +1,12 @@
+# `{RSQLite}`
+
+In RStudio
+
+``` r 
+library(DBI)
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+dbListTables(con)
+dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
+dbReadTable(con, "mtcars")
+```

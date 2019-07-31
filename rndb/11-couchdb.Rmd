@@ -1,0 +1,15 @@
+# couchdb and `{R4CouchDB}`
+
+```
+docker pull couchdb:2.3.1
+docker run --rm --name couchdb --net r-db couchdb:2.3.1
+```
+
+In R 
+
+``` r
+library(R4CouchDB)
+con <- cdbIni("couchdb")
+con$queryParam <- "count=10"
+cdbGetUuidS(con)
+```

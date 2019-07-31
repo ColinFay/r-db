@@ -1,0 +1,16 @@
+# Cassandra & `{RCassandra}``
+
+```
+docker pull cassandra:2.1
+docker run --name cassandra --network r-db -d cassandra:2.1
+```
+
+In RStudio 
+
+``` r 
+library(RCassandra)
+con <- RC.connect(host = "cassandra", port = 9160L)
+log <- RC.login(con, "cassandra", "cassandra")
+```
+
+> Tests needed

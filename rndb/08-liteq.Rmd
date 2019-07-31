@@ -1,0 +1,14 @@
+# `{liteq}`
+
+``` r
+library(liteq)
+db <- tempfile()
+q <- ensure_queue("jobs", db = db)
+q
+list_queues(db)
+publish(q, title = "First message", message = "Hello world!")
+publish(q, title = "Second message", message = "Hello again!")
+list_messages(q)
+msg <- try_consume(q)
+msg
+```
