@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>RDB</title>
-  <meta name="description" content="A Dockerfile that can install the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
+  <title>r-db</title>
+  <meta name="description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="RDB" />
+  <meta property="og:title" content="r-db" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="A Dockerfile that can install the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
+  <meta property="og:description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="RDB" />
+  <meta name="twitter:title" content="r-db" />
   
-  <meta name="twitter:description" content="A Dockerfile that can install the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
+  <meta name="twitter:description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   
 
 <meta name="author" content="Colin Fay" />
@@ -129,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>RDB</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>r-db</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#licence-note-on-oracle"><i class="fa fa-check"></i>Licence note on Oracle</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
@@ -173,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RDB</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">r-db</a>
           </h1>
         </div>
 
@@ -182,16 +182,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">RDB</h1>
+<h1 class="title">r-db</h1>
 <p class="author"><em>Colin Fay</em></p>
 <p class="date"><em>2019-07-31</em></p>
 </div>
-<div id="rdb" class="section level1 unnumbered">
-<h1>RDB</h1>
+<div id="r-db" class="section level1 unnumbered">
+<h1>r-db</h1>
 <p>A Dockerfile that can install the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose.</p>
+<p>Get it with:</p>
 <pre><code>docker pull colinfay/r-db</code></pre>
 <p>Once launched, this Docker image has everything needed to connect and interact with the databases listed in the <a href="https://cran.r-project.org/web/views/Databases.html">Databases CRAN View</a>, well at least with the one that can be installed with the <code>{ctv}</code> package, plus some others you’ll find listed below.</p>
-<p>On this README, you’ll also find how to install and interact with these DBMS with other containers.</p>
+<p>In this book, you’ll also find how to install and interact with these DBMS with other containers.</p>
 <p>Note that the Task View will be installed with the status it had on the date of the Docker container, which is defined by the version of R used.</p>
 <p>Each DB has an example code you can run. Most are taken from these packages README / docs. Not all are filled and any help testing / writting example code will be welcome.</p>
 <div id="licence-note-on-oracle" class="section level2 unnumbered">

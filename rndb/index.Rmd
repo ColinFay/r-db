@@ -1,5 +1,5 @@
 --- 
-title: "RDB"
+title: "r-db"
 author: "Colin Fay"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,12 +7,14 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "A Dockerfile that can install the whole stack of packages from the CRAN task view \"Databases\", plus some others. Probably for teaching purpose."
+description: "Install and use the whole stack of packages from the CRAN task view \"Databases\", plus some others. Probably for teaching purpose."
 ---
 
-# RDB {-}
+# r-db {-}
 
 A Dockerfile that can install the whole stack of packages from the CRAN task view "Databases", plus some others. Probably for teaching purpose.
+
+Get it with:
 
 ```
 docker pull colinfay/r-db
@@ -20,7 +22,7 @@ docker pull colinfay/r-db
 
 Once launched, this Docker image has everything needed to connect and interact with the databases listed in the [Databases CRAN View](https://cran.r-project.org/web/views/Databases.html), well at least with the one that can be installed with the `{ctv}` package, plus some others you'll find listed below.
 
-On this README, you'll also find how to install and interact with these DBMS with other containers.
+In this book, you'll also find how to install and interact with these DBMS with other containers.
 
 Note that the Task View will be installed with the status it had on the date of the Docker container, which is defined by the version of R used.
 
