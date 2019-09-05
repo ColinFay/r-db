@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Cassandra &amp; `{RCassandra}`` | r-db</title>
+  <title>12 Cassandra &amp; {RCassandra} | r-db</title>
   <meta name="description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Cassandra &amp; `{RCassandra}`` | r-db" />
+  <meta property="og:title" content="12 Cassandra &amp; {RCassandra} | r-db" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Cassandra &amp; `{RCassandra}`` | r-db" />
+  <meta name="twitter:title" content="12 Cassandra &amp; {RCassandra} | r-db" />
   
   <meta name="twitter:description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Colin Fay" />
 
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,9 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="mongodb-mongolite.html"><a href="mongodb-mongolite.html"><i class="fa fa-check"></i><b>9</b> mongodb &amp; <code>{mongolite}</code></a></li>
 <li class="chapter" data-level="10" data-path="pool.html"><a href="pool.html"><i class="fa fa-check"></i><b>10</b> <code>{pool}</code></a></li>
 <li class="chapter" data-level="11" data-path="couchdb-and-r4couchdb.html"><a href="couchdb-and-r4couchdb.html"><i class="fa fa-check"></i><b>11</b> couchdb and <code>{R4CouchDB}</code></a></li>
-<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; `{RCassandra}``</a></li>
+<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; <code>{RCassandra}</code></a></li>
 <li class="chapter" data-level="13" data-path="redis-rcppredis-redux.html"><a href="redis-rcppredis-redux.html"><i class="fa fa-check"></i><b>13</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
-<li class="chapter" data-level="14" data-path="redis-rcppredis-redux-1.html"><a href="redis-rcppredis-redux-1.html"><i class="fa fa-check"></i><b>14</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
+<li class="chapter" data-level="14" data-path="greenplum.html"><a href="greenplum.html"><i class="fa fa-check"></i><b>14</b> greenplum</a></li>
 <li class="chapter" data-level="15" data-path="h2-rh2.html"><a href="h2-rh2.html"><i class="fa fa-check"></i><b>15</b> H2 &amp; <code>{RH2}</code></a></li>
 <li class="chapter" data-level="16" data-path="rjdbc.html"><a href="rjdbc.html"><i class="fa fa-check"></i><b>16</b> <code>{RJDBC}</code></a></li>
 <li class="chapter" data-level="17" data-path="mariadb-rmariadb.html"><a href="mariadb-rmariadb.html"><i class="fa fa-check"></i><b>17</b> Mariadb &amp; <code>{RMariaDB}</code></a></li>
@@ -184,7 +184,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="cassandra-rcassandra" class="section level1">
-<h1><span class="header-section-number">12</span> Cassandra &amp; `{RCassandra}``</h1>
+<h1><span class="header-section-number">12</span> Cassandra &amp; <code>{RCassandra}</code></h1>
+<blockquote>Apache Cassandra is an open-source NoSQL distributed database management system. It was originally developed at Facebook by Avinash Lakshman and Prashant Malik. Version 2.0.7 was released on April 14, 2014.  </blockquote>
+<blockquote>Apache Cassandra uses the NoSQL system instead of the traditional relational database management system (RDBMS) because the latter is not well suited for handling large volumes of unstructured data, such as those produced by websites or online companies. NoSQL has a simpler design and supports horizontal scaling, which allows the addition of new servers for better performance.Cassandra uses a peer-to-peer architecture instead of the master/slave setup used in RDBMSs. There is no master server in the former like in peer-to-peer file sharing. If a master server stalls or breaks down because of numerous requests, the slave servers are rendered useless, whereas in a peer-to-peer setup, every database cluster is equal and can accept requests from any client. As a result, Cassandra has no single point of failure.  </blockquote>
+<p>
+<span>
+From: 
+<a href="https://www.techopedia.com/definition/30169/apache-cassandra">https://www.techopedia.com/definition/30169/apache-cassandra</a>
+
+
+</span>
+</p>
 <pre><code>docker pull cassandra:2.1
 docker run --name cassandra --network r-db -d cassandra:2.1</code></pre>
 <p>In RStudio</p>

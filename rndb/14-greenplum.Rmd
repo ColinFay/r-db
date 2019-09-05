@@ -1,4 +1,4 @@
-# redis & `{RcppRedis}` / `{redux}`
+# greenplum 
 
 ``` 
 docker pull pivotaldata/gpdb-devel

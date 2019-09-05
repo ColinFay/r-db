@@ -1,3 +1,5 @@
 # Oracle & `{ROracle}` 
 
+`r include_techopedia("https://www.techopedia.com/definition/8711/oracle-database")`
+
 > Tests needed

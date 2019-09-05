@@ -1,5 +1,7 @@
 # impala & `{implyr}`
 
+`r include_techopedia("https://www.techopedia.com/definition/30158/impala")`
+
 ```
 docker pull cloudera/impala-dev:minimal
 docker run -p 21050:21050 -d --name impala --net r-db cloudera/impala-dev:minimal

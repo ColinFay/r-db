@@ -1,7 +1,7 @@
 # MySQL & `{RMySQL}`
 
-<details>
-  <summary>Show Code</summary>
+`r include_techopedia("https://www.techopedia.com/definition/3498/mysql")`
+
 
 ```
 docker pull mysql:8.0.16
@@ -14,13 +14,15 @@ In RStudio
 
 ``` r 
 library(DBI)
+
 con <- DBI::dbConnect(
   RMariaDB::MariaDB(), 
   user = "root",
   password = "coucou",
-  host = "mysql",
+  host = "mysql", 
   db = "mydb"
 )
+
 
 dbListTables(con)
 dbWriteTable(con, "mtcars", mtcars)

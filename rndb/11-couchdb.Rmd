@@ -1,5 +1,7 @@
 # couchdb and `{R4CouchDB}`
 
+`r include_techopedia("https://www.techopedia.com/definition/30316/couchdb")`
+
 ```
 docker pull couchdb:2.3.1
 docker run --rm --name couchdb --net r-db couchdb:2.3.1

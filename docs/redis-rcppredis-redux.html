@@ -24,7 +24,7 @@
 <meta name="author" content="Colin Fay" />
 
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="cassandra-rcassandra.html">
-<link rel="next" href="redis-rcppredis-redux-1.html">
+<link rel="next" href="greenplum.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -150,9 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="mongodb-mongolite.html"><a href="mongodb-mongolite.html"><i class="fa fa-check"></i><b>9</b> mongodb &amp; <code>{mongolite}</code></a></li>
 <li class="chapter" data-level="10" data-path="pool.html"><a href="pool.html"><i class="fa fa-check"></i><b>10</b> <code>{pool}</code></a></li>
 <li class="chapter" data-level="11" data-path="couchdb-and-r4couchdb.html"><a href="couchdb-and-r4couchdb.html"><i class="fa fa-check"></i><b>11</b> couchdb and <code>{R4CouchDB}</code></a></li>
-<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; `{RCassandra}``</a></li>
+<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; <code>{RCassandra}</code></a></li>
 <li class="chapter" data-level="13" data-path="redis-rcppredis-redux.html"><a href="redis-rcppredis-redux.html"><i class="fa fa-check"></i><b>13</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
-<li class="chapter" data-level="14" data-path="redis-rcppredis-redux-1.html"><a href="redis-rcppredis-redux-1.html"><i class="fa fa-check"></i><b>14</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
+<li class="chapter" data-level="14" data-path="greenplum.html"><a href="greenplum.html"><i class="fa fa-check"></i><b>14</b> greenplum</a></li>
 <li class="chapter" data-level="15" data-path="h2-rh2.html"><a href="h2-rh2.html"><i class="fa fa-check"></i><b>15</b> H2 &amp; <code>{RH2}</code></a></li>
 <li class="chapter" data-level="16" data-path="rjdbc.html"><a href="rjdbc.html"><i class="fa fa-check"></i><b>16</b> <code>{RJDBC}</code></a></li>
 <li class="chapter" data-level="17" data-path="mariadb-rmariadb.html"><a href="mariadb-rmariadb.html"><i class="fa fa-check"></i><b>17</b> Mariadb &amp; <code>{RMariaDB}</code></a></li>
@@ -185,6 +185,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="redis-rcppredis-redux" class="section level1">
 <h1><span class="header-section-number">13</span> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></h1>
+<blockquote>Redis is an advanced key-value store, better known as a data-structure server. It can be considered as a type of database which works with key-value pairs and uses main memory for storing data. Its use of main memory means that it is both fast and scalable, but may be confined by the capacity of the RAM. It also has built-in persistence though snapshotting and journalizing to disk so it can be used as a No SQL database.  </blockquote>
+<blockquote>Redis is described as an advanced key-value store rather than an outright database because of the way it stores data as key-value pairs which can contain strings, lists, hash sets, and sorted sets. It works with an in-memory dataset in order to achieve outstanding performance and it can run atomic operations such as appending strings, incrementing hash values, finding and retrieving members in a list, computing set intersection, union and difference, and more. Depending on the use case for which Redis is implemented on, data can be made to persist by dumping the dataset on the disk or by appending each command to a log. Redis is open sourced and is BSD licensed. It was developed by Salvatore Sanfilippo and was initially released on April 10, 2009. The program is written in ANSI C and is thoroughly tested for POSIX systems such as Linux, BSD, and OSX. There is no official Windows version, but Microsoft develops and maintains a Windows 32- and 64-bit experimental version. </blockquote>
+<p>
+<span>
+From: 
+<a href="https://www.techopedia.com/definition/30360/redis">https://www.techopedia.com/definition/30360/redis</a>
+
+
+</span>
+</p>
 <pre><code>docker pull redis:5.0.5
 docker run --rm --name redis --net r-db -d redis:5.0.5</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">r &lt;-<span class="st"> </span>redux<span class="op">::</span><span class="kw">hiredis</span>(
@@ -204,7 +214,7 @@ r<span class="op">$</span><span class="kw">GET</span>(<span class="st">&quot;foo
         </div>
       </div>
 <a href="cassandra-rcassandra.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="redis-rcppredis-redux-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="greenplum.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

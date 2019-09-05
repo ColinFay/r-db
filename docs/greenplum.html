@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>17 Mariadb &amp; {RMariaDB} | r-db</title>
+  <title>14 greenplum | r-db</title>
   <meta name="description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="17 Mariadb &amp; {RMariaDB} | r-db" />
+  <meta property="og:title" content="14 greenplum | r-db" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="17 Mariadb &amp; {RMariaDB} | r-db" />
+  <meta name="twitter:title" content="14 greenplum | r-db" />
   
   <meta name="twitter:description" content="Install and use the whole stack of packages from the CRAN task view “Databases”, plus some others. Probably for teaching purpose." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rjdbc.html">
-<link rel="next" href="mysql-rmysql.html">
+<link rel="prev" href="redis-rcppredis-redux.html">
+<link rel="next" href="h2-rh2.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -183,28 +183,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mariadb-rmariadb" class="section level1">
-<h1><span class="header-section-number">17</span> Mariadb &amp; <code>{RMariaDB}</code></h1>
-<pre><code>docker pull mariadb:10.4.5-bionic
-docker run --net r-db --name mariadb -e MYSQL_ROOT_PASSWORD=coucou \
-  -d mariadb:10.4.5-bionic &amp;&amp; sleep 30 &amp;&amp; \
-  docker exec -it mariadb mysql -uroot -pcoucou -e &quot;create database mydb&quot;</code></pre>
-<p>In RStudio:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DBI)
-con &lt;-<span class="st"> </span>DBI<span class="op">::</span><span class="kw">dbConnect</span>(
-  RMariaDB<span class="op">::</span><span class="kw">MariaDB</span>(), 
-  <span class="dt">user =</span> <span class="st">&quot;root&quot;</span>,
-  <span class="dt">password =</span> <span class="st">&quot;coucou&quot;</span>,
-  <span class="dt">host =</span> <span class="st">&quot;mariadb&quot;</span>,
-  <span class="dt">db =</span> <span class="st">&quot;mydb&quot;</span>
-)
-
-<span class="kw">dbListTables</span>(con)
-<span class="kw">dbWriteTable</span>(con, <span class="st">&quot;mtcars&quot;</span>, mtcars)
-<span class="kw">dbListTables</span>(con)
-
-res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(con, <span class="st">&quot;SELECT * FROM mtcars WHERE cyl = 4&quot;</span>)
-<span class="kw">dbFetch</span>(res)</code></pre>
+<div id="greenplum" class="section level1">
+<h1><span class="header-section-number">14</span> greenplum</h1>
+<pre><code>docker pull pivotaldata/gpdb-devel
+docker run --rm --name gpdb --net r-db pivotaldata/gpdb-devel</code></pre>
+<blockquote>
+<p>Tests needed</p>
+</blockquote>
 
 </div>
             </section>
@@ -212,8 +197,8 @@ res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(con, <span
           </div>
         </div>
       </div>
-<a href="rjdbc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="mysql-rmysql.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="redis-rcppredis-redux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="h2-rh2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

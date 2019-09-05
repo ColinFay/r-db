@@ -1,3 +1,6 @@
 # Google Big Query & `{bigrquery}`
 
+`r include_techopedia("https://www.techopedia.com/definition/31282/bigquery")`
+
+
 > Todo

@@ -1,5 +1,8 @@
 # redis & `{RcppRedis}` / `{redux}`
 
+`r include_techopedia("https://www.techopedia.com/definition/30360/redis")`
+
+
 ```
 docker pull redis:5.0.5
 docker run --rm --name redis --net r-db -d redis:5.0.5

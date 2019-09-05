@@ -1,5 +1,8 @@
 # `{RSQLite}`
 
+`r include_techopedia("https://www.techopedia.com/definition/24610/sqlite")`
+
+
 In RStudio
 
 ``` r 

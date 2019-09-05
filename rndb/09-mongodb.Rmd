@@ -1,5 +1,8 @@
 # mongodb & `{mongolite}`
 
+`r include_techopedia("https://www.techopedia.com/definition/30340/mongodb")`
+
+
 ```
 docker pull mongo:3.4
 docker run -p 27017:27017 -d --name mongo --net r-db mongo:3.4

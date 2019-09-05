@@ -1,5 +1,9 @@
 # PostGreSQL and `{RPostgres}` / `{RPostgreSQL}`
 
+
+
+`r include_techopedia("https://www.techopedia.com/definition/3499/postgresql")`
+
 ```
 docker pull postgres:11.3
 docker run --rm -e POSTGRES_PASSWORD=docker --name postgre --net r-db postgres:11.3

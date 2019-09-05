@@ -1,4 +1,6 @@
-# Cassandra & `{RCassandra}``
+# Cassandra & `{RCassandra}`
+
+`r include_techopedia("https://www.techopedia.com/definition/30169/apache-cassandra")`
 
 ```
 docker pull cassandra:2.1

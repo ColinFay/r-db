@@ -24,7 +24,7 @@
 <meta name="author" content="Colin Fay" />
 
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,9 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="mongodb-mongolite.html"><a href="mongodb-mongolite.html"><i class="fa fa-check"></i><b>9</b> mongodb &amp; <code>{mongolite}</code></a></li>
 <li class="chapter" data-level="10" data-path="pool.html"><a href="pool.html"><i class="fa fa-check"></i><b>10</b> <code>{pool}</code></a></li>
 <li class="chapter" data-level="11" data-path="couchdb-and-r4couchdb.html"><a href="couchdb-and-r4couchdb.html"><i class="fa fa-check"></i><b>11</b> couchdb and <code>{R4CouchDB}</code></a></li>
-<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; `{RCassandra}``</a></li>
+<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; <code>{RCassandra}</code></a></li>
 <li class="chapter" data-level="13" data-path="redis-rcppredis-redux.html"><a href="redis-rcppredis-redux.html"><i class="fa fa-check"></i><b>13</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
-<li class="chapter" data-level="14" data-path="redis-rcppredis-redux-1.html"><a href="redis-rcppredis-redux-1.html"><i class="fa fa-check"></i><b>14</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
+<li class="chapter" data-level="14" data-path="greenplum.html"><a href="greenplum.html"><i class="fa fa-check"></i><b>14</b> greenplum</a></li>
 <li class="chapter" data-level="15" data-path="h2-rh2.html"><a href="h2-rh2.html"><i class="fa fa-check"></i><b>15</b> H2 &amp; <code>{RH2}</code></a></li>
 <li class="chapter" data-level="16" data-path="rjdbc.html"><a href="rjdbc.html"><i class="fa fa-check"></i><b>16</b> <code>{RJDBC}</code></a></li>
 <li class="chapter" data-level="17" data-path="mariadb-rmariadb.html"><a href="mariadb-rmariadb.html"><i class="fa fa-check"></i><b>17</b> Mariadb &amp; <code>{RMariaDB}</code></a></li>
@@ -185,21 +185,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="mysql-rmysql" class="section level1">
 <h1><span class="header-section-number">18</span> MySQL &amp; <code>{RMySQL}</code></h1>
-<details>
-<p><summary>Show Code</summary></p>
+<blockquote>MySQL is a full-featured relational database management system (RDBMS) that competes with the likes of Oracle DB and Microsoft’s SQL Server. MySQL is sponsored by the Swedish company MySQL AB, which is owned by Oracle Corp. However, the MySQL source code is freely available because it was originally developed as freeware. MySQL is written in C and C++ and is compatible with all major operating systems.  </blockquote>
+<blockquote>MySQL was a free-software database engine originally developed and first released in 1995. MySQL is named after My, the daughter Michael Widenius, of one of the product’s originators. It was originally produced under the GNU General Public License, in which source code is made freely available. MySQL is very popular for Web-hosting applications because of its plethora of Web-optimized features like HTML data types, and because it's available for free. It is part of the Linux, Apache, MySQL, PHP (LAMP) architecture, a combination of platforms that is frequently used to deliver and support advanced Web applications. MySQL runs the back-end databases of some famous websites, including Wikipedia, Google and Facebook- a testament to its stability and robustness despite its decentralized, free-for-all philosophy. MySQL was originally owned by Sun Microsystems; when the company was purchased by Oracle Corp. in 2010, MySQL was part of the package. Although MySQL is technically considered a competitor of Oracle DB, Oracle DB is mainly used by large enterprises, while MySQL is used by smaller, more Web-oriented databases. In addition, MySQL differs from Oracle's product because it's in the public domain.  </blockquote>
+<p>
+<span>
+From: 
+<a href="https://www.techopedia.com/definition/3498/mysql">https://www.techopedia.com/definition/3498/mysql</a>
+
+
+</span>
+</p>
 <pre><code>docker pull mysql:8.0.16
 docker run --net r-db --name mysql -e MYSQL_ROOT_PASSWORD=coucou -d mysql:8.0.16 \
   --default-authentication-plugin=mysql_native_password \
   &amp;&amp; sleep 30 &amp;&amp; docker exec -it mysql mysql -uroot -pcoucou -e &quot;create database mydb&quot;</code></pre>
 <p>In RStudio</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DBI)
+
 con &lt;-<span class="st"> </span>DBI<span class="op">::</span><span class="kw">dbConnect</span>(
   RMariaDB<span class="op">::</span><span class="kw">MariaDB</span>(), 
   <span class="dt">user =</span> <span class="st">&quot;root&quot;</span>,
   <span class="dt">password =</span> <span class="st">&quot;coucou&quot;</span>,
-  <span class="dt">host =</span> <span class="st">&quot;mysql&quot;</span>,
+  <span class="dt">host =</span> <span class="st">&quot;mysql&quot;</span>, 
   <span class="dt">db =</span> <span class="st">&quot;mydb&quot;</span>
 )
+
 
 <span class="kw">dbListTables</span>(con)
 <span class="kw">dbWriteTable</span>(con, <span class="st">&quot;mtcars&quot;</span>, mtcars)

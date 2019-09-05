@@ -1,7 +1,5 @@
 # Mariadb & `{RMariaDB}`
 
-<details>
-  <summary>Show Code</summary>
   
 ```
 docker pull mariadb:10.4.5-bionic

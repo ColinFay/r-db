@@ -24,7 +24,7 @@
 <meta name="author" content="Colin Fay" />
 
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,9 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="mongodb-mongolite.html"><a href="mongodb-mongolite.html"><i class="fa fa-check"></i><b>9</b> mongodb &amp; <code>{mongolite}</code></a></li>
 <li class="chapter" data-level="10" data-path="pool.html"><a href="pool.html"><i class="fa fa-check"></i><b>10</b> <code>{pool}</code></a></li>
 <li class="chapter" data-level="11" data-path="couchdb-and-r4couchdb.html"><a href="couchdb-and-r4couchdb.html"><i class="fa fa-check"></i><b>11</b> couchdb and <code>{R4CouchDB}</code></a></li>
-<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; `{RCassandra}``</a></li>
+<li class="chapter" data-level="12" data-path="cassandra-rcassandra.html"><a href="cassandra-rcassandra.html"><i class="fa fa-check"></i><b>12</b> Cassandra &amp; <code>{RCassandra}</code></a></li>
 <li class="chapter" data-level="13" data-path="redis-rcppredis-redux.html"><a href="redis-rcppredis-redux.html"><i class="fa fa-check"></i><b>13</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
-<li class="chapter" data-level="14" data-path="redis-rcppredis-redux-1.html"><a href="redis-rcppredis-redux-1.html"><i class="fa fa-check"></i><b>14</b> redis &amp; <code>{RcppRedis}</code> / <code>{redux}</code></a></li>
+<li class="chapter" data-level="14" data-path="greenplum.html"><a href="greenplum.html"><i class="fa fa-check"></i><b>14</b> greenplum</a></li>
 <li class="chapter" data-level="15" data-path="h2-rh2.html"><a href="h2-rh2.html"><i class="fa fa-check"></i><b>15</b> H2 &amp; <code>{RH2}</code></a></li>
 <li class="chapter" data-level="16" data-path="rjdbc.html"><a href="rjdbc.html"><i class="fa fa-check"></i><b>16</b> <code>{RJDBC}</code></a></li>
 <li class="chapter" data-level="17" data-path="mariadb-rmariadb.html"><a href="mariadb-rmariadb.html"><i class="fa fa-check"></i><b>17</b> Mariadb &amp; <code>{RMariaDB}</code></a></li>
@@ -185,6 +185,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="couchdb-and-r4couchdb" class="section level1">
 <h1><span class="header-section-number">11</span> couchdb and <code>{R4CouchDB}</code></h1>
+<blockquote>Apache CouchDB is a non-relational or NoSQL database which was developed to fully embrace the web. Data is stored within JSON documents which can be accessed and its indices queried via HTTP. Indexing, transforming and combining of documents are performed through JavaScript. Because it uses all of these web-friendly standards and technologies, CouchDB works very well with web and mobile applications.  </blockquote>
+<blockquote>CouchDB is an open source document-oriented database which uses key-value maps for storing document fields. The fields can be simple key-value pairs, maps, or lists. Each document stored is given a document-level unique identifier and a revision number whenever there are changes made to it. CouchDB is able to do on-the-fly document transformation as well as present real-time change notifications, making web applications development easier.eval(ez_write_tag([[250,250],'techopedia_com-under_second_paragraph','ezslot_5',128,'0', 0])); It specializes in Availability and Partition Tolerance (AP) but can eventually be consistent through minor work. As a comparison, MongoDB is mostly Consistency and Partition Tolerant. CouchDB features: Quick indexing and retrievalEasy replication across multiple server instancesMultiple libraries for different languagesJSON-based document formatREST-like interface for document retrieval, deletion, updates and insertionData feed updates which are subscribable through the changes feed </blockquote>
+<p>
+<span>
+From: 
+<a href="https://www.techopedia.com/definition/30316/couchdb">https://www.techopedia.com/definition/30316/couchdb</a>
+
+
+</span>
+</p>
 <pre><code>docker pull couchdb:2.3.1
 docker run --rm --name couchdb --net r-db couchdb:2.3.1</code></pre>
 <p>In R</p>
